@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bel Esprit d'Accord Trust Holdings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #020205;
+      --panel:   #07070f;
+      --border:  #12121e;
+      --gold:    #C9A84C;
+      --gold2:   #e8c97a;
+      --white:   #e8e8f0;
+      --muted:   #3a3a5c;
+      --dim:     #1a1a2e;
+      --green:   #34D399;
+      --purple:  #a78bfa;
+      --mono:    'Space Mono', monospace;
+      --syne:    'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--mono);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .seal {
+      font-size: clamp(32px, 6vw, 56px);
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-family: var(--syne);
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      max-width: 800px;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero-sub {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.25em;
+      margin-top: 16px;
+      margin-bottom: 48px;
+    }
+
+    .tagline {
+      font-size: clamp(13px, 2vw, 16px);
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.9;
+      margin-bottom: 56px;
+    }
+
+    .worm-tag {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 6px 16px;
+    }
+
+    /* ── SECTION ── */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 0.35em;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-family: var(--syne);
+      font-size: clamp(22px, 4vw, 38px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      line-height: 1.15;
+    }
+
+    h2 span { color: var(--gold); }
+
+    .body-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 2;
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    /* ── STRUCTURE DIAGRAM ── */
+    .diagram {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      margin: 40px 0;
+      font-size: 12px;
+      line-height: 2.2;
+    }
+
+    .d-node {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+
+    .d-label {
+      font-family: var(--syne);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      min-width: 200px;
+    }
+
+    .d-desc {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .d-arrow {
+      color: var(--border);
+      font-size: 16px;
+      padding-left: 32px;
+      margin-bottom: 4px;
+    }
+
+    .d-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .d-col {
+      padding: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .d-col-label {
+      font-family: var(--syne);
+      font-weight: 800;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+    }
+
+    .d-col-item {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 2;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FOUR ENTITIES ── */
+    .entities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .entity-card {
+      background: var(--panel);
+      padding: 32px 24px;
+    }
+
+    .entity-icon {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .entity-name {
+      font-family: var(--syne);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .entity-role {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.9;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FOUR ACCOUNTS ── */
+    .accounts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .account-card {
+      border: 1px solid var(--border);
+      padding: 24px;
+    }
+
+    .account-num {
+      font-family: var(--syne);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+
+    .account-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+
+    .account-desc {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── CREDIT PHASES ── */
+    .phases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .phase-card {
+      background: var(--panel);
+      padding: 28px 24px;
+    }
+
+    .phase-num {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: 0.25em;
+      margin-bottom: 8px;
+    }
+
+    .phase-name {
+      font-family: var(--syne);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .phase-desc {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* ── STACK ── */
+    .stack {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      margin: 40px 0;
+    }
+
+    .stack-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--dim);
+    }
+
+    .stack-row:last-child { border-bottom: none; }
+
+    .stack-tech {
+      font-family: var(--syne);
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--gold);
+      min-width: 160px;
+    }
+
+    .stack-why {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── PRINCIPLE ── */
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .principle {
+      border-left: 2px solid var(--gold);
+      padding: 20px 24px;
+      background: var(--panel);
+    }
+
+    .principle-who {
+      font-family: var(--syne);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    .principle-what {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── FOUNDATION ── */
+    .foundation-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+      margin: 32px 0;
+    }
+
+    .f-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--muted);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--dim);
+    }
+
+    .f-check { color: var(--gold); font-size: 12px; }
+
+    /* ── CLOSING ── */
+    .closing {
+      text-align: center;
+      padding: 100px 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .closing-seal {
+      font-size: 48px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 40px;
+      opacity: 0.7;
+    }
+
+    .closing h2 {
+      font-family: var(--syne);
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .closing p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 2.2;
+      margin-bottom: 48px;
+    }
+
+    .contact-block {
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 32px;
+      margin-top: 40px;
+    }
+
+    .contact-label {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 0.35em;
+      margin-bottom: 16px;
+    }
+
+    .contact-name {
+      font-family: var(--syne);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .contact-title {
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 2;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(2,2,5,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--syne);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero { padding-top: 120px; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .d-split { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Bel Esprit d'Accord</div>
+  <ul class="nav-links">
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#accounts">Banking</a></li>
+    <li><a href="#credit">Credit</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="seal">☉⌹○◇△⬡</div>
+  <h1>Bel Esprit<br/><span>d'Accord</span><br/>Trust Holdings</h1>
+  <div class="hero-sub">SOVEREIGN ENTERPRISE ARCHITECTURE · TRUST-FIRST INFRASTRUCTURE · WORM SEALED</div>
+  <p class="tagline">
+    A real holdings structure is not just a company.<br/>
+    It is the umbrella that holds the house together.<br/>
+    The trust is the vault. The holdings is the roof.<br/>
+    The operating entity is the machine. The sole proprietor is the ignition.
+  </p>
+  <div class="worm-tag">Ω — WORM SEALED · IMMUTABLE · SOVEREIGN</div>
+</div>
+
+<!-- FOUR ENTITIES -->
+<section id="structure">
+  <div class="section-label">01 · THE STRUCTURE</div>
+  <h2>The <span>Four Entities</span></h2>
+  <p class="body-text">
+    A sovereign enterprise needs four distinct entities. Not one. Not two. Four.
+    Each has a purpose. Each has a boundary. Commingling destroys both the entity and the credit.
+  </p>
+
+  <div class="entities">
+    <div class="entity-card">
+      <div class="entity-icon">🔒</div>
+      <div class="entity-name">TRUST</div>
+      <div class="entity-role">
+        The vault.<br/>
+        Holds assets, IP, ownership interests,<br/>
+        instruments, and long-term value.<br/>
+        The estate mechanism.<br/>
+        Nothing leaves without documentation.
+      </div>
+    </div>
+    <div class="entity-card">
+      <div class="entity-icon">🏛</div>
+      <div class="entity-name">HOLDINGS</div>
+      <div class="entity-role">
+        The roof.<br/>
+        Organizes the relationship between<br/>
+        the trust and operating activity.<br/>
+        The umbrella. The glue.<br/>
+        The connector to fintech rails.
+      </div>
+    </div>
+    <div class="entity-card">
+      <div class="entity-icon">⚙️</div>
+      <div class="entity-name">OPERATING ENTITY</div>
+      <div class="entity-role">
+        The machine.<br/>
+        Generates revenue, executes contracts,<br/>
+        runs software, serves customers.<br/>
+        Where commercial activity lives.<br/>
+        Separate. Always.
+      </div>
+    </div>
+    <div class="entity-card">
+      <div class="entity-icon">🔥</div>
+      <div class="entity-name">SOLE PROPRIETOR</div>
+      <div class="entity-role">
+        The ignition.<br/>
+        Fast-moving engine. Proves demand.<br/>
+        Builds the first financial record.<br/>
+        The infant entity.<br/>
+        You never skip the sole.
+      </div>
+    </div>
+  </div>
+
+  <div class="diagram">
+    <div class="d-node">
+      <div class="d-label">TRUST</div>
+      <div class="d-desc">Asset Vault · IP · Instruments · Long-term Value</div>
+    </div>
+    <div class="d-arrow">↓</div>
+    <div class="d-node">
+      <div class="d-label">HOLDINGS COMPANY</div>
+      <div class="d-desc">Ownership Layer · Treasury · Umbrella · Connector</div>
+    </div>
+    <div class="d-arrow">↓</div>
+    <div class="d-split">
+      <div class="d-col">
+        <div class="d-col-label">FOR-PROFIT</div>
+        <div class="d-col-item">
+          Revenue<br/>Products<br/>Customers<br/>Contracts<br/>Procurement<br/>Services
+        </div>
+      </div>
+      <div class="d-col">
+        <div class="d-col-label">NGO · SEIT</div>
+        <div class="d-col-item">
+          Mission<br/>Programs<br/>Beneficiaries<br/>Grants<br/>Research<br/>Community
+        </div>
+      </div>
+    </div>
+    <div class="d-arrow">↓</div>
+    <div class="d-node">
+      <div class="d-label">R&D LAYER</div>
+      <div class="d-desc">Documentation · Git History · Financial Records · IP Package</div>
+    </div>
+    <div class="d-arrow">↓</div>
+    <div class="d-node">
+      <div class="d-label">ACCOUNTING</div>
+      <div class="d-desc">Ledger · OCR Capture · Receipt Matching · Financial Memory</div>
+    </div>
+    <div class="d-arrow">↓</div>
+    <div class="d-node">
+      <div class="d-label">TREASURY</div>
+      <div class="d-desc">Capital Layer · Asset Custody · Investment Policy · Institutional Memory</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR ACCOUNTS -->
+<section id="accounts">
+  <div class="section-label">02 · THE BANKING LAYER</div>
+  <h2>Four <span>Institution Accounts</span></h2>
+  <p class="body-text">
+    A sovereign structure needs four banking relationships. Not one account. Four.
+    Each serves a distinct function. Together they create institutional gravity.
+  </p>
+
+  <div class="accounts">
+    <div class="account-card">
+      <div class="account-num">01</div>
+      <div class="account-name">MAJOR FDIC BANK</div>
+      <div class="account-desc">
+        Chase preferred.<br/>
+        Institutional gravity.<br/>
+        Traditional banking legitimacy.<br/>
+        The foundation account.
+      </div>
+    </div>
+    <div class="account-card">
+      <div class="account-num">02</div>
+      <div class="account-name">BROKERAGE</div>
+      <div class="account-desc">
+        Fidelity or Charles Schwab.<br/>
+        Treasury management.<br/>
+        Asset custody.<br/>
+        Investment policy.
+      </div>
+    </div>
+    <div class="account-card">
+      <div class="account-num">03</div>
+      <div class="account-name">FINTECH CUSHION</div>
+      <div class="account-desc">
+        Speed, cards, integrations.<br/>
+        Spend controls.<br/>
+        Routed through Holdings<br/>
+        because trusts cannot always<br/>
+        bank fintech directly.
+      </div>
+    </div>
+    <div class="account-card">
+      <div class="account-num">04</div>
+      <div class="account-name">OPERATING ACCOUNT</div>
+      <div class="account-desc">
+        Clean revenue in.<br/>
+        Clean expenses out.<br/>
+        No commingling. Ever.<br/>
+        Dedicated to active entity.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIT PHASES -->
+<section id="credit">
+  <div class="section-label">03 · THE CREDIT SEQUENCE</div>
+  <h2>Eight <span>Phases</span> to Institutional Trust</h2>
+  <p class="body-text">
+    Corporate credit is not fake. It is earned in sequence.
+    Each phase builds on the last. You cannot skip a phase.
+    Boring is bankable. Chaos is expensive.
+  </p>
+
+  <div class="phases">
+    <div class="phase-card">
+      <div class="phase-num">PHASE 01</div>
+      <div class="phase-name">IDENTITY</div>
+      <div class="phase-desc">EIN · Articles · Operating agreement · Business address · Domain · Website. Consistent everywhere institutions look.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">PHASE 02</div>
+      <div class="phase-name">BANKING</div>
+      <div class="phase-desc">Major FDIC first. Clean behavior. Consistent deposits. No overdrafts. No commingling. No mystery transfers.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">PHASE 03</div>
+      <div class="phase-name">PAYMENT RAILS</div>
+      <div class="phase-desc">Stripe in production with real compliance. Plaid connected for cash flow verification. Clean payment history.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">PHASE 04</div>
+      <div class="phase-name">ACCOUNTING MEMORY</div>
+      <div class="phase-desc">Clean books. Without books the enterprise has no memory. No memory means no credit.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">PHASE 05</div>
+      <div class="phase-name">VENDOR CREDIT</div>
+      <div class="phase-desc">Pay early. Low utilization. Do not over-apply. Payment history is the first objective. Not debt.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">PHASE 06</div>
+      <div class="phase-name">SOFTWARE PROCUREMENT</div>
+      <div class="phase-desc">Rippling, NetSuite, Salesforce extend terms to serious entities. Procurement credit is real capital when documented correctly.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">PHASE 07</div>
+      <div class="phase-name">TREASURY</div>
+      <div class="phase-desc">Fidelity or Schwab relationship. Investment policy. Asset custody. Demonstrates treasury discipline.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">PHASE 08</div>
+      <div class="phase-name">TRUST INTERLOCK</div>
+      <div class="phase-desc">IP assigned to trust. License documented. Operating agreement in place. No mystery movement between entities.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="section-label">04 · THE TECHNOLOGY STACK</div>
+  <h2>Why Every <span>Technology</span> Was Chosen</h2>
+  <p class="body-text">
+    Every component in the stack was selected for a specific reason.
+    Not trend. Not convenience. Institutional necessity.
+  </p>
+
+  <div class="stack">
+    <div class="stack-row">
+      <div class="stack-tech">COBOL</div>
+      <div class="stack-why">Financial institutions still run on old steel. If your stack cannot talk to legacy rails it cannot talk to banks.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-tech">OCR</div>
+      <div class="stack-why">Not document automation. Credit infrastructure. Every receipt becomes structured evidence. Every invoice becomes underwriting data.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-tech">STRIPE + PLAID</div>
+      <div class="stack-why">BaaS layer. Stripe = payment signal. Plaid = cash flow signal. Together they create the financial nervous system.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-tech">WORM CHAIN</div>
+      <div class="stack-why">Immutable audit trail. Ed25519 signed. SHA-256 sealed. Every action receipted. No mystery movement. Ever.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-tech">PROLOG KERNEL</div>
+      <div class="stack-why">Constraint enforcement before execution. No action advances unless every previous state remains coherent.</div>
+    </div>
+    <div class="stack-row">
+      <div class="stack-tech">DASHBOARD</div>
+      <div class="stack-why">Without visibility the enterprise is blind. The dashboard is not a feature. It is institutional sight.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section>
+  <div class="section-label">05 · THE PRINCIPLES</div>
+  <h2>Who <span>Trusts</span> What</h2>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-who">A BANK</div>
+      <div class="principle-what">Lends against trust. Clean records. Consistent behavior. Documented history. No mystery.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-who">A FINTECH</div>
+      <div class="principle-what">Underwrites against behavior. Stripe volume. Plaid cash flow. Deposit consistency. Account age.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-who">A VENDOR</div>
+      <div class="principle-what">Extends terms against seriousness. Clear buyer. Signed agreement. Payment method. Operating history.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-who">A CREDIT BUREAU</div>
+      <div class="principle-what">Records consistency. D-U-N-S. Experian Business. Payment history. Entity clarity. Industry category.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-who">THE TRUST</div>
+      <div class="principle-what">Preserves the asset. IP assignment. Instruments. Long-term value. The vault that outlasts the cycle.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-who">THE HOLDINGS</div>
+      <div class="principle-what">Organizes the system. Connects the trust to the operating entity. The roof that makes the house legible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDATION CHECKLIST -->
+<section>
+  <div class="section-label">06 · THE FOUNDATION</div>
+  <h2>What Every <span>Sovereign Enterprise</span> Must Have</h2>
+
+  <div class="foundation-list">
+    {[
+      'Trust or estate-level holding mechanism',
+      'Holdings entity',
+      'Operating entity',
+      'Articles of formation',
+      'Operating agreements',
+      'Four institution banking accounts',
+      'Payment rails — Stripe + Plaid',
+      'Accounting ledger with clean books',
+      'OCR invoice and receipt capture',
+      'IP assignment documents',
+      'Vendor accounts with payment history',
+      'Procurement history',
+      'Treasury controls and policy',
+      'R&D documentation package',
+      'Dashboard for institutional visibility',
+    ].map(item => `
+    <div class="f-item">
+      <span class="f-check">✦</span>
+      <span>${item}</span>
+    </div>`).join('')}
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing" id="contact">
+  <div class="closing-seal">☉⌹○◇△⬡ Ω</div>
+  <h2>The Real Enterprise Is Not Just the Product</h2>
+  <p>
+    It is the house around the product.<br/><br/>
+    The trust is the vault.<br/>
+    The holdings company is the roof.<br/>
+    The operating company is the machine.<br/>
+    The sole proprietor is the ignition.<br/>
+    The software stack is the nervous system.<br/>
+    The financial record is the proof.<br/><br/>
+    Credit is not just money.<br/>
+    Credit is the market's memory of whether the enterprise can be trusted.
+  </p>
+
+  <div class="contact-block">
+    <div class="contact-label">FOUNDING ARCHITECT</div>
+    <div class="contact-name">Ahmad Ali Parr</div>
+    <div class="contact-title">
+      Bel Esprit d'Accord Trust Holdings<br/>
+      SnapKitty Collective LLC<br/>
+      SEIT — Sovereign Enterprise Institute of Technology<br/>
+      NACHA Member · Treasury · Sovereign Enterprise Architecture<br/><br/>
+      ☉⌹○◇△⬡ Ω — WORM Sealed
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
