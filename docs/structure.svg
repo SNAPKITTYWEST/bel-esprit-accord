@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="700" viewBox="0 0 980 700" role="img" aria-labelledby="title desc">
+  <title id="title">Bel Esprit d'Accord enterprise house animation</title>
+  <desc id="desc">Animated SVG showing the enterprise structure building layer by layer from trust to holdings, operating entity, NGO, sole proprietor, and final WORM-sealed border.</desc>
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="scan" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#C9A84C" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#C9A84C" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#C9A84C" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      :root {
+        --gold: #C9A84C;
+        --black: #020205;
+        --dim: #7f6a31;
+      }
+
+      .bg { fill: var(--black); }
+      .frame { fill: none; stroke: var(--gold); stroke-width: 2; }
+      .thin { stroke: var(--gold); stroke-width: 1; opacity: 0.55; }
+      .terminal {
+        fill: var(--gold);
+        font-family: "Space Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 20px;
+        letter-spacing: 0.2px;
+      }
+      .small { font-size: 15px; }
+      .tiny { font-size: 13px; }
+      .title { font-size: 24px; font-weight: 700; filter: url(#glow); }
+      .label { font-size: 19px; font-weight: 700; }
+      .dim { fill: var(--dim); }
+      .box {
+        fill: #020205;
+        stroke: var(--gold);
+        stroke-width: 2;
+        rx: 8;
+        filter: url(#glow);
+      }
+      .dash {
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 2;
+        stroke-dasharray: 8 9;
+      }
+      .path {
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: url(#glow);
+      }
+      .node,
+      .line,
+      .seal,
+      .legend {
+        opacity: 0;
+        animation: fadeIn 14s ease-in-out infinite;
+      }
+      .trust { animation-delay: 1.5s; }
+      .down-path {
+        stroke-dasharray: 130;
+        stroke-dashoffset: 130;
+        animation: drawDown 14s ease-in-out infinite;
+      }
+      .holdings { animation-delay: 3s; }
+      .branch {
+        stroke-dasharray: 320;
+        stroke-dashoffset: 320;
+        animation: drawBranch 14s ease-in-out infinite;
+      }
+      .operating { animation-delay: 5.5s; }
+      .ngo { animation-delay: 6s; }
+      .sole { animation-delay: 7.5s; }
+      .evolve {
+        stroke-dasharray: 220;
+        stroke-dashoffset: 220;
+        animation: drawEvolve 14s ease-in-out infinite;
+      }
+      .seal { animation-delay: 9.5s; }
+      .legend { animation-delay: 9.8s; }
+      .cursor {
+        animation: cursorBlink 0.8s steps(1, end) infinite;
+      }
+      .pulse {
+        animation: pulseGold 1.8s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .scan {
+        fill: url(#scan);
+        animation: scanline 5s linear infinite;
+      }
+
+      @keyframes fadeIn {
+        0%, 10% { opacity: 0; }
+        18%, 92% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes drawDown {
+        0%, 20% { stroke-dashoffset: 130; opacity: 0; }
+        24%, 92% { stroke-dashoffset: 0; opacity: 1; }
+        100% { stroke-dashoffset: 130; opacity: 0; }
+      }
+
+      @keyframes drawBranch {
+        0%, 31% { stroke-dashoffset: 320; opacity: 0; }
+        38%, 92% { stroke-dashoffset: 0; opacity: 1; }
+        100% { stroke-dashoffset: 320; opacity: 0; }
+      }
+
+      @keyframes drawEvolve {
+        0%, 53% { stroke-dashoffset: 220; opacity: 0; }
+        62%, 92% { stroke-dashoffset: 0; opacity: 1; }
+        100% { stroke-dashoffset: 220; opacity: 0; }
+      }
+
+      @keyframes cursorBlink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+
+      @keyframes pulseGold {
+        0%, 100% { opacity: 0.75; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.04); }
+      }
+
+      @keyframes scanline {
+        0% { transform: translateY(-700px); }
+        100% { transform: translateY(700px); }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="700"/>
+  <rect class="frame" x="24" y="24" width="932" height="652" rx="10"/>
+  <rect class="thin" x="42" y="42" width="896" height="616" rx="6" fill="none"/>
+  <rect class="scan" x="42" y="42" width="896" height="120"/>
+
+  <text class="terminal title" x="64" y="82">☉⌹○◇△⬡ Ω  BEL ESPRIT D'ACCORD</text>
+  <text class="terminal small dim" x="64" y="112">ENTERPRISE HOUSE · TRUST STRUCTURE · WORM-SEALEABLE RECORD</text>
+  <text class="terminal small" x="64" y="145">&gt; assembling legal/operating topology <tspan class="cursor">█</tspan></text>
+
+  <g class="node trust">
+    <rect class="box" x="358" y="170" width="264" height="96"/>
+    <text class="terminal label" x="388" y="205">🔒 TRUST</text>
+    <text class="terminal small" x="388" y="232">The Vault</text>
+    <text class="terminal small dim" x="388" y="254">Assets · IP</text>
+  </g>
+
+  <path class="path down-path" d="M490 266 L490 308"/>
+  <text class="terminal line holdings" x="481" y="299">↓</text>
+
+  <g class="node holdings">
+    <rect class="box" x="358" y="310" width="264" height="96"/>
+    <text class="terminal label" x="388" y="345">🏛 HOLDINGS</text>
+    <text class="terminal small" x="388" y="372">The Roof</text>
+    <text class="terminal small dim" x="388" y="394">The Umbrella</text>
+  </g>
+
+  <path class="path branch" d="M490 406 L490 442 L302 442 L302 472"/>
+  <path class="path branch" d="M490 406 L490 442 L678 442 L678 472"/>
+  <text class="terminal line operating" x="292" y="463">↓</text>
+  <text class="terminal line ngo" x="668" y="463">↓</text>
+
+  <g class="node operating">
+    <rect class="box" x="178" y="472" width="248" height="96"/>
+    <text class="terminal label" x="204" y="507">⚙ OPERATING</text>
+    <text class="terminal small" x="204" y="534">Revenue</text>
+    <text class="terminal small dim" x="204" y="556">Contracts</text>
+  </g>
+
+  <g class="node ngo">
+    <rect class="box" x="554" y="472" width="248" height="96"/>
+    <text class="terminal label" x="580" y="507">🌱 NGO/SEIT</text>
+    <text class="terminal small" x="580" y="534">Mission</text>
+    <text class="terminal small dim" x="580" y="556">Grants</text>
+  </g>
+
+  <g class="node sole">
+    <rect class="box" x="76" y="578" width="276" height="86"/>
+    <text class="terminal label" x="102" y="611">🔥 SOLE PROP</text>
+    <text class="terminal small" x="102" y="637">The Ignition</text>
+    <text class="terminal tiny dim" x="102" y="657">Never skip.</text>
+  </g>
+
+  <path class="dash evolve" d="M352 620 L438 620 L438 520 L178 520"/>
+  <text class="terminal line sole small" x="370" y="610">- - → evolves into →</text>
+
+  <rect class="frame seal" x="54" y="154" width="872" height="522" rx="12"/>
+  <text class="terminal legend small" x="382" y="628">TRUST = Vault · HOLDINGS = Roof · OPERATING = Machine</text>
+  <text class="terminal legend small" x="382" y="652">SOLE = Ignition · RECORD = Proof</text>
+  <text class="terminal legend seal pulse" x="604" y="214">☉⌹○◇△⬡ Ω — WORM SEALED</text>
+</svg>
