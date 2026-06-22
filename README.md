@@ -1,5 +1,9 @@
 # Bel Esprit d'Accord Trust Holdings
 
+<p align="center">
+  <img src="docs/structure.svg" alt="Sovereign Enterprise Structure — building itself" width="100%" />
+</p>
+
 ```
 ╔══════════════════════════════════════════════════════════════╗
 ║           BEL ESPRIT D'ACCORD TRUST HOLDINGS                ║
