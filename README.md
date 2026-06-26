@@ -95,3 +95,5 @@ Credit is not just money.
 *NACHA Member | Treasury | Sovereign Enterprise Architecture*
 
 ☉⌹○◇△⬡ Ω — WORM SEALED
+
+![](https://sovereign-analytics.snapkittywest.workers.dev/canary/bel-esprit-accord)
